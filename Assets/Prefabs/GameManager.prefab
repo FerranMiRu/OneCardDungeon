@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6383165817663629476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8704400805215917789}
+  - component: {fileID: 7898853012388957544}
+  - component: {fileID: 1824411269426090923}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8704400805215917789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6383165817663629476}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7898853012388957544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6383165817663629476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4605a491140a6b64e93baf280b7a4180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBaseSpeed: 1
+  playerBaseAttack: 1
+  playerBaseDefense: 1
+  playerBaseReach: 2
+  playerBaseHp: 6
+  boardScript: {fileID: 0}
+--- !u!114 &1824411269426090923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6383165817663629476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814ad662d8a46de4bb16df4a5ac1b03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  columns: 5
+  rows: 5
+  wallCount:
+    minimum: 2
+    maximum: 4
+  exit: {fileID: 7008164125022064439, guid: 427702c56af9ce243ad769c8542609f1, type: 3}
+  floorTile: {fileID: 3599034670824627931, guid: 4c3e7d678e098e343b99332fec4fbc57, type: 3}
+  wallTile: {fileID: 160991976407992099, guid: 940857d87a7ac804c9a880a659de95f2, type: 3}
+  enemyTile: {fileID: 7902962060985851511, guid: 2c1efdc5efd456446aa9713ac36be767, type: 3}
+  playerTile: {fileID: 1454210991247488618, guid: 1e2a84b51d3390e488a5933a1761576b, type: 3}
