@@ -22,7 +22,6 @@ public class BoardManager : MonoBehaviour
     public int columns = 5;
     public int rows = 5;
     public Count wallCount = new Count(2, 4);
-    public GameObject exit;
     public GameObject floorTile;
     public GameObject wallTile;
     public GameObject enemyTile;
@@ -45,7 +44,6 @@ public class BoardManager : MonoBehaviour
         Instantiate(wallTile, new Vector3(3, 3, 0f), Quaternion.identity);
 
         Instantiate(playerTile, new Vector3(0, 0, 0f), Quaternion.identity);
-        Instantiate(exit, new Vector3(4, 4, 0f), Quaternion.identity);
     }
 
     void LoadLevel(int level)
