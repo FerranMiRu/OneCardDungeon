@@ -1,20 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private string nextPhase = "Energy";
+
     public static GameManager instance = null;
 
 
-    private void Turn()
+    private void InitGame()
     {
-        EnergySelector.instance.StartEnergyPhase();
+        NextPhase();
     }
 
-    void InitGame()
+    public void NextPhase()
     {
-        Turn();
+        if (nextPhase == "Energy")
+        {
+            nextPhase = "Player";
+            EnergySelector.instance.StartEnergyPhase();
+        }
+        else if (nextPhase == "Player")
+        {
+            nextPhase = "Enemies";
+            Player.instance.StartPlayerPhase();
+        }
+        else if (nextPhase == "Enemies")
+        {
+            nextPhase = "Energy";
+            Enemies.instance.StartEnemiesPhase();
+        }
     }
 
     void Awake()
@@ -25,7 +42,10 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+    }
 
+    void Start()
+    {
         InitGame();
     }
 }

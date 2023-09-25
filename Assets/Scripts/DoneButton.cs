@@ -6,15 +6,16 @@ using UnityEngine.UI;
 
 public class DoneButton : MonoBehaviour
 {
-    public GameObject warningText;
-
     private Button button;
     private TextMeshProUGUI warningTextComponent;
+
+    public GameObject warningText;
 
 
     private void HideWarning()
     {
         warningTextComponent.text = "";
+        warningText.SetActive(false);
     }
 
     private void DoneEnergyPhase()
@@ -25,8 +26,9 @@ public class DoneButton : MonoBehaviour
         }
         else
         {
+            warningText.SetActive(true);
             warningTextComponent.text = "You must select a different attribute for each number!";
-            Invoke("HideWarning", 2f);
+            Invoke(nameof(HideWarning), 2f);
         }
     }
 
@@ -36,5 +38,10 @@ public class DoneButton : MonoBehaviour
         button.onClick.AddListener(DoneEnergyPhase);
 
         warningTextComponent = warningText.GetComponent<TextMeshProUGUI>();
+    }
+
+    void Start()
+    {
+        HideWarning();
     }
 }

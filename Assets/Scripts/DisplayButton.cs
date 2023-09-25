@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class DisplayButton : MonoBehaviour
 {
-    public List<GameObject> itemsToToggle;
-    public bool showEnergySelector = true;
-
     private Button button;
     private TextMeshProUGUI buttonTextComponent;
+
+    public List<GameObject> itemsToToggle;
+    public bool showEnergySelector = true;
 
 
     private void OnToggle()

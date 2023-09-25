@@ -7,16 +7,9 @@ public class EnergySelector : MonoBehaviour
     public static EnergySelector instance = null;
 
 
-    void Awake()
-    {
-        if (instance == null)
-            instance = this;
-        else if (instance != this)
-            Destroy(gameObject);
-    }
-
     public void StartEnergyPhase()
     {
+        Player.instance.ResetStatsDisplay();
         Dices.instance.RollEnergy();
 
         gameObject.SetActive(true);
@@ -27,5 +20,15 @@ public class EnergySelector : MonoBehaviour
         gameObject.SetActive(false);
 
         Player.instance.SetTurnStats(Dices.instance.GetTurnStats());
+
+        GameManager.instance.NextPhase();
+    }
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
     }
 }

@@ -8,14 +8,6 @@ public class Dices : MonoBehaviour
     public static Dices instance = null;
 
 
-    void Awake()
-    {
-        if (instance == null)
-            instance = this;
-        else if (instance != this)
-            Destroy(gameObject);
-    }
-
     public bool CheckUniqueStats() 
     {
         HashSet<string> stats = new HashSet<string>();
@@ -44,5 +36,13 @@ public class Dices : MonoBehaviour
     public void RollEnergy()
     {
         dicesList.ForEach(dice => dice.GetComponent<Dice>().Roll());
+    }
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
     }
 }
