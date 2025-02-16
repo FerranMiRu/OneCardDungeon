@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -48,5 +45,12 @@ public class Enemy : Being
     public void Hide()
     {
         attackThisButtonComponent.interactable = false;
+    }
+
+    public void PerformTurn()
+    {
+        if (!isDead)
+        {
+        }
     }
 }

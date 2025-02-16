@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemies : MonoBehaviour
@@ -31,7 +29,14 @@ public class Enemies : MonoBehaviour
             if (
                 !enemy.IsDead()
                 &&
-                Board.instance.CheckLineOfSight( attackerPosition, enemy.gameObject.transform.position))
+                Board.instance.CheckLineOfSight(attackerPosition, enemy.gameObject.transform.position)
+                &&
+                Board.instance.CheckDistance(
+                    Board.instance.GetTileFromVector(attackerPosition),
+                    Board.instance.GetTileFromVector(enemy.gameObject.transform.position),
+                    reach
+                ).Item1
+            )
             {
                 if (attack >= enemy.defense)
                 {
@@ -51,6 +56,11 @@ public class Enemies : MonoBehaviour
 
     public void StartEnemiesPhase()
     {
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.PerformTurn();
+        }
+
         GameManager.instance.NextPhase();
     }
 
